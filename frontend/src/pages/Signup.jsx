@@ -19,7 +19,7 @@ const navigate = useNavigate()
              const res = await Axios.post('http://localhost:3006/auth/signup',dataSignup)
              if(res){
                 const data = await res.data
-                navigate('/signprofile')
+                navigate('/')
              }
          }catch(e){
             console.log(e)
@@ -38,17 +38,17 @@ const navigate = useNavigate()
                <form onSubmit={(e)=>handleSubmit(e)} className='form'>
                  <h1>S'enregistrer</h1>
                  <div>
-                   <label className='label-control'>Numero</label>
+                   <label className='label-control'><i class="fa-solid fa-phone"></i></label>
                    <input type='number' id='numero' className='form-control' placeholder='Numero:'
                    name='numero' value={dataSignup.numero} onChange={(e)=>handleChange(e)}  />
                  </div>
                  <div>
-                    <label className='label-control'>Password</label>
+                    <label className='label-control'><i class="fa-solid fa-key"></i></label>
                     <input type='password' id='password' className='form-control' placeholder='Password:'
                     name='password' value={dataSignup.password} onChange={(e)=>handleChange(e)} />
                  </div>
                  <div>
-                    <button className='btn btn-signup'>Signup</button>
+                    <button className='btn btn-signup'>Signup <i class="fa-solid fa-user-plus"></i></button>
                  </div>
                </form>
 

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Axios from 'axios'
 import Panier from '../components/Panier';
+import { Navigate, useNavigate } from 'react-router-dom';
+import AuthContext from '../context/authContext';
+
 const Cart = () => {
+  const authCtx = useContext(AuthContext)
+  const isLogin = authCtx.isLoggin
     //recuperation des produits du panier depuis le server
     const [panier , setPanier] = useState([])
     useEffect(()=>{
@@ -17,6 +22,7 @@ const Cart = () => {
     }
     return (
         <>
+        {!isLogin && <Navigate to='/login' replace='true'/>}
         <Panier panier={panier}/>
            <div className='pan'>
             <div className='cart'>

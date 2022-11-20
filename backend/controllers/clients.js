@@ -30,8 +30,8 @@ exports.login = (req,res,next)=>{
             if(!valid){
                 return res.status(400).json({message:'password incorrect'})
             }
-            res.status(200).json({userId:user.id , token: jwt.sign({
-                userId:user.id},'RANDOM_TOKEN_SECRET',{expiresIn:'24h'}
+            res.status(200).json({userId:user._id , token: jwt.sign({
+                userId:user._id},'RANDOM_TOKEN_SECRET',{expiresIn:'24h'}
                 )})
         })
         .catch((error)=>res.status(500).json({error}))

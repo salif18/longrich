@@ -7,6 +7,7 @@ const defaultValue = {
     login:()=>{},
     logout:()=>{}
 }
+
 const AuthContext = createContext(defaultValue);
 const tokenLocalStorage = localStorage.getItem('token')
 const userIdLocalStorage = localStorage.getItem('userId')
@@ -30,15 +31,15 @@ export const AuthContextProvider =(props)=>{
     }
 
     const userLoggedIn = !!token
-
+ 
     const contextValue = {
         token:token,
         userId:userId,
-        isLoggedIn:userLoggedIn,
+        isLoggin:userLoggedIn,
         login:handlerLogin,
         logout:handlerLogout
-
     }
+    
     return(
         <AuthContext.Provider value={contextValue}>
             {props.children}

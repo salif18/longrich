@@ -4,6 +4,7 @@ const Panier = require('../models/tble_Panier');
 //creer
 exports.addjPanier = (req,res,next)=>{
     const panier = new Panier({
+        userId:req.body.userId,
         image:req.body.image,
         name:req.body.name,
         description:req.body.description,
@@ -26,7 +27,7 @@ exports.readAllPanier = (req,res,next)=>{
 
 //supprimer
 exports.deletePanier = (req,res,next) =>{
-    Panier.deleteOne({id:req.params.id})
+    Panier.deleteOne({_id:req.params.id})
     .then(()=>res.status(200).json({message:'produit supprimer'}))
     .catch((error)=>res.status(400).json({error}))
 }

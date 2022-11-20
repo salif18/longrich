@@ -4,10 +4,17 @@ import { useState } from 'react';
 import Onglet from '../components/Onglet';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar'
+import { useContext } from 'react';
+import AuthContext from '../context/authContext';
+
+
 const Products = () => {
+    //context
+    const authCtx = useContext(AuthContext)
+    const isLogin = authCtx.isLoggin
     //state de produits
     const [products,setProducts]=useState([])
-
+   
     //fonction recuperation de tous les produits du cote server
     useEffect(()=>{
         const getProd = async()=>{
@@ -30,8 +37,8 @@ const Products = () => {
         .then((res)=>res.data)
     }
 
-    const supprimer = (id)=>{
-        Axios.delete(`http://localhost:3006/products/:${id}`)
+    const supprimer = ()=>{
+        Axios.delete(`http://localhost:3006/products/:id`)
         .then(res=>res.data)
     }
     return (
@@ -54,10 +61,10 @@ const Products = () => {
                     </div>
                     <div className='btn-products'>
                         <button className='btn btn-prod-add' onClick={()=>btnAjterPanier(prod)}><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button className='btn btn-prod-delete' onClick={()=>supprimer(id)}><i class="fa-solid fa-trash"></i></button>
-                        <button className='btn btn-prod-share'><i class="fa-solid fa-share-from-square"></i></button>
-                        <button className='btn btn-prod-modif'><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button className='btn btn-prod-view'><i class="fa-solid fa-eye"></i></button>
+                        {isLogin && <button className='btn btn-prod-delete' onClick={()=>supprimer(id)}><i class="fa-solid fa-trash"></i></button>}
+                        {isLogin && <button className='btn btn-prod-share'><i class="fa-solid fa-share-from-square"></i></button>}
+                        {isLogin && <button className='btn btn-prod-modif'><i class="fa-solid fa-pen-to-square"></i></button>}
+                         <button className='btn btn-prod-view'><i class="fa-solid fa-eye"></i></button>
                     </div>
                  </div>
                

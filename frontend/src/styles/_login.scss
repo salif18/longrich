@@ -7,7 +7,8 @@
     border-radius: 10px;
     width: 600px;
     padding: 20px;
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto',sans-serif; 
+    outline: none;
 }
 
 .form-control{
@@ -15,21 +16,37 @@
     width: 500px; 
     font-weight: 400;
     margin: 20px;
+    border: 2px solid rgb(2,252,252,177);
+  
 }
-
+.label-control{
+    font-weight: 700;
+}
 .btn-login{
     background: rgb(2,252,252,177);
     width: 500px;
     margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
 }
 .btn-signup{
     width: 500px;
     background: rgb(2,252,252,177);
     margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
 }
 
 .form h1{
     border-bottom: 2px solid rgb(2,252,252,177);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius:10px ;
     text-align: center;
     padding: 10px;
 
@@ -45,4 +62,12 @@
     width: 500px;
     background: rgb(2,252,252,177);
     margin: 20px;
+}
+
+.btn-logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cdcdcd;
+    font-family: 'Roboto',sans-serif;
 }

@@ -4,7 +4,8 @@ import Axios from 'axios'
 import { useContext } from 'react';
 import AuthContext from '../context/authContext';
 import {useNavigate} from 'react-router-dom'
-const Login = () => {
+
+const Login = ({add}) => {
   const [dataLogin,setDataLogin]=useState({
     numero:'',password:''
   })
@@ -16,6 +17,8 @@ const Login = () => {
 
   const authCtx = useContext(AuthContext)
   const navigate = useNavigate()
+  
+
   const handleSubmit = (e)=>{
     e.preventDefault()
     const potLogin = async()=>{
@@ -24,7 +27,7 @@ const Login = () => {
             if(res){
               const data = await res.data
               authCtx.login(data.token,data.userId)
-              navigate('/signprofile')
+              navigate('/')
               
             }
          }catch(e){
@@ -36,6 +39,7 @@ const Login = () => {
       numero:'',password:''
     })
   }
+    
     return (
         <>
             <div className='login'>
@@ -43,17 +47,17 @@ const Login = () => {
                <form onSubmit={(e)=>handleSubmit(e)} className='form'>
                 <h1>Se connecter</h1>
                  <div>
-                   <label className='label-control'>Numero</label>
+                   <label className='label-control'><i class="fa-solid fa-phone"></i></label>
                    <input type='number' id='numero' className='form-control' placeholder='Numero:'
                    name='numero' value={dataLogin.numero} onChange={(e)=>handleChange(e)}  />
                  </div>
                  <div>
-                    <label className='label-control'>Password</label>
+                    <label className='label-control'><i class="fa-solid fa-key"></i></label>
                     <input type='password' id='password' className='form-control' placeholder='Password:'
                     name='password' value={dataLogin.password} onChange={(e)=>handleChange(e)} />
                  </div>
                  <div>
-                    <button className='btn btn-login'>Login</button>
+                    <button className='btn btn-login'>Login <i class="fa-solid fa-right-to-bracket"></i></button>
                  </div>
                </form>
             </div>

@@ -4,6 +4,7 @@ const Profile = require('../models/tble_profile');
 //creer
 exports.creadProfile = (req,res,next)=>{
     const profile = new Profile({
+        userId:req.body.userId,
         prenom:req.body.prenom,
         nom:req.body.nom,
         address:req.body.address,

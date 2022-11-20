@@ -1,11 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
 import Axios from 'axios'
+import AuthContext from '../context/authContext';
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Admin = () => {
+  const authCtx = useContext(AuthContext)
+  const isLogin = authCtx.isLoggin
   //state pour stoker les donnees produit
   const [dataProducts,setDataProducts]=useState({
-    image:'',name:'',description:'',category:'',price:''
+    image:'',name:'',description:'',category:'',price:'',userId:authCtx.userId
   })
 
   const handleChange = (e)=>{
@@ -27,13 +32,14 @@ const handleSubmit = (e) => {
     }
     postData()
     setDataProducts({
-    image:'',name:'',description:'',category:'',price:''
+    image:'',name:'',description:'',category:'',price:'',userId:''
     })
 }
 
 const option = ['Choix-de-category',"Pommade",'Savon','Cafe','Dentifrice']
     return (
         <>
+        {!isLogin && <Navigate to='/login' replace='true'/>}
             <div className='admin'>
               <form onSubmit={(e)=>handleSubmit(e)} className='form'>
                 <h1>Placer un produit</h1>
