@@ -1,0 +1,14 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #000;
+}
+
+.navbar a{
+ margin:20px;
+ text-decoration: none;
+ color: #000;
+ font-size: 25px;
+ font-family:'Roboto',sans-serif ;
+ font-weight: bold;
+}

@@ -1,0 +1,107 @@
+.cart{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 2px solid rgb(2, 252, 252,177);
+    margin: 20px;
+    border-radius: 10px;
+    font-family: 'Roboto',sans-serif;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 350px;
+    margin: 20px;
+    box-shadow: 5px 5px 5px 5px rgb(0, 0, 0);
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+.card:hover{
+    transform: scale(1.08);
+}
+.cart-img{
+    width: 200px;
+    height: 210px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.card-img:hover{
+    transform: scale(1.08);
+}
+.card-body{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-name{
+    font-size: 20px;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
+}
+.card-price{
+    font-size: 15px;
+    font-family: 'Roboto',sans-serif;
+}
+
+
+.btn-cart-delete{
+    position: absolute;
+    top:20px;
+    right:20px;
+    background: rgba(17, 17, 17, 0.74);
+    opacity: 20%;
+    
+}
+.btn-cart-delete:hover{
+    background: #e44b4b;
+    opacity: 100%;
+    color: rgb(255, 255, 255);
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+}
+.btn-cart-plus{
+   background: rgb(2, 252, 252,177);
+   margin: 10px;
+   color: #f5f5f5;
+}
+.btn-cart-minus{
+    background: rgb(2, 252, 252,177);
+    color: #fff;
+    margin: 10px;
+}
+
+.btn-cart-minus:hover{
+    background: rgb(96, 223, 141);
+}
+
+.btn-cart-plus:hover{
+    background: rgb(23, 251, 250,100);
+    
+}
+.total{
+    margin:20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(2,252,252,177);
+    background: rgb(96, 223, 141);
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.total button{
+    margin: 20px;
+}
+.pan{
+    display: flex;
+   
+}

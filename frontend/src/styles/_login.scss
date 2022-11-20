@@ -1,0 +1,48 @@
+.form{
+    margin-left: 400px;
+    margin-top: 150px;
+    color: rgb(2,252,252,177);
+    font-weight: bold;
+    border: 2px solid rgb(2,252,252,177);
+    border-radius: 10px;
+    width: 600px;
+    padding: 20px;
+    font-family: 'Roboto',sans-serif;
+}
+
+.form-control{
+    border: 2px solid rgb(2,252,252,177);
+    width: 500px; 
+    font-weight: 400;
+    margin: 20px;
+}
+
+.btn-login{
+    background: rgb(2,252,252,177);
+    width: 500px;
+    margin: 20px;
+}
+.btn-signup{
+    width: 500px;
+    background: rgb(2,252,252,177);
+    margin: 20px;
+}
+
+.form h1{
+    border-bottom: 2px solid rgb(2,252,252,177);
+    text-align: center;
+    padding: 10px;
+
+}
+
+.btn-login:hover{
+    background: rgb(30, 209, 99);
+}
+.btn-signup:hover{
+    background: rgb(30, 209, 99);
+}
+.btn-admin{
+    width: 500px;
+    background: rgb(2,252,252,177);
+    margin: 20px;
+}

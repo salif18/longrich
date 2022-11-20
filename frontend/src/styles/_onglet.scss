@@ -1,0 +1,29 @@
+.onglet{
+    display: flex;
+    height: 60px;
+    border-bottom: 1px solid #000;
+}
+
+// .btn-cat{
+//     display: flex;
+//     background: rgb(2, 252, 177);
+//     margin:10px;
+//     width: 100px;
+//     height: 40px;
+//     align-items: center;
+//     border: 1px solid #252525;
+//     font-family: 'Roboto',sans-serif;
+// }
+.catalogue{
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: 10px;
+    height: 40px;
+    width: 200px;
+    padding: 5px;
+    background: rgb(2,252,177);
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+}

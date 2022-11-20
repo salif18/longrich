@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,100;0,300;0,700;1,100&display=swap');
+
+body {
+  margin: 0;
+  padding:0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+@import './header';
+@import './navbar';
+@import './onglet';
+@import './home';
+@import './products';
+@import './cart';
+@import './panier';
+@import './login';
+
+
