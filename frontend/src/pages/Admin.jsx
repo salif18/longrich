@@ -4,8 +4,20 @@ import Axios from 'axios'
 import AuthContext from '../context/authContext';
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import {ClipLoader} from 'react-spinners'
 
 const Admin = () => {
+
+  //spinner
+  const [loading,setloading]=useState(false)
+  useEffect(()=>{
+    setloading(true)
+    setTimeout(()=>{
+      setloading(false)
+    },1000)
+  },[])
+  //context
   const authCtx = useContext(AuthContext)
   const isLogin = authCtx.isLoggin
   //state pour stoker les donnees produit
@@ -41,7 +53,7 @@ const option = ['Choix-de-category',"Pommade",'Savon','Cafe','Dentifrice']
         <>
         {!isLogin && <Navigate to='/login' replace='true'/>}
             <div className='admin'>
-              <form onSubmit={(e)=>handleSubmit(e)} className='form'>
+             {loading ? <ClipLoader className='clip'/>: <form onSubmit={(e)=>handleSubmit(e)} className='form'>
                 <h1>Placer un produit</h1>
                 <div>
                     <label className='label-control'>Image</label>
@@ -73,7 +85,9 @@ const option = ['Choix-de-category',"Pommade",'Savon','Cafe','Dentifrice']
                 <div>
                     <button className='btn btn-admin'>Ajouter produits</button>
                 </div>
+             
               </form>
+              }
             </div>
         </>
     );

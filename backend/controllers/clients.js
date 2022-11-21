@@ -2,7 +2,8 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const Clients = require('../models/tble_clients');
-
+const dotenv =require('dotenv');
+dotenv.config()
 //fonction inscription
 exports.signup = (req,res,next)=>{
     bcrypt.hash(req.body.password, 10)
@@ -31,7 +32,7 @@ exports.login = (req,res,next)=>{
                 return res.status(400).json({message:'password incorrect'})
             }
             res.status(200).json({userId:user._id , token: jwt.sign({
-                userId:user._id},'RANDOM_TOKEN_SECRET',{expiresIn:'24h'}
+                userId:user._id},`${process.env.RANDOM_TOKEN_SECRET}`,{expiresIn:'24h'}
                 )})
         })
         .catch((error)=>res.status(500).json({error}))

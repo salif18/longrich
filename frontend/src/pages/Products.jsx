@@ -6,9 +6,18 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar'
 import { useContext } from 'react';
 import AuthContext from '../context/authContext';
+import {ClipLoader} from 'react-spinners';
 
+const Products = ({categ,categoryFilter}) => {
+//spinner
+const [loading,setloading]=useState(false)
+useEffect(()=>{
+  setloading(true)
+  setTimeout(()=>{
+    setloading(false)
+  },1000)
+},[])
 
-const Products = () => {
     //context
     const authCtx = useContext(AuthContext)
     const isLogin = authCtx.isLoggin
@@ -33,27 +42,47 @@ const Products = () => {
     
     //boutton ajouter au panier
     const btnAjterPanier = (prod)=>{
-        Axios.post('http://localhost:3006/panier',{...prod, qty:1})
-        .then((res)=>res.data)
+        const ajdata =async()=>{
+              try{
+                 const res = await Axios.post('http://localhost:3006/panier',{...prod, qty:1})
+                  if(res){
+                  const data = await res.data
+                  }
+              }catch(e){
+                console.log(e)
+              }
+        }
+        ajdata()
     }
 
     const supprimer = ()=>{
-        Axios.delete(`http://localhost:3006/products/:id`)
-        .then(res=>res.data)
+        const supp =async()=>{
+           try{
+              const res = await Axios.delete('http://localhost:3006/products/:id')
+              if(res){
+                const data = await res.data
+             }
+           }catch(e){
+            console.log(e)
+           }
+        }
+         supp()
+       
     }
     return (
         <> 
         <Header/>
           <Navbar/>
-           <Onglet/>
+           <Onglet categ={categ}/>
            
             <div className='products' > 
              
-               {products.map((prod,id)=>(
-        
+               {products.filter((cat)=>cat.category.includes(categoryFilter)).map((prod,id)=>(
                  <div className='card'key={id}>
-                    <img  className='card-img' src={prod.image} alt={prod.name} />
-                    <div className='card-body'>
+                
+                 {loading? <ClipLoader className='clip-card' size={'50px'}/> :
+                 <><img  className='card-img' src={prod.image} alt={prod.name} />
+                     <div className='card-body'>
                         <h1 className='card-name'>{prod.name}</h1>
                         <p className='card-text'>{prod.description}</p>
                         <h3 className='card-price'>{prod.price} Fcfa</h3>
@@ -65,9 +94,12 @@ const Products = () => {
                         {isLogin && <button className='btn btn-prod-share'><i class="fa-solid fa-share-from-square"></i></button>}
                         {isLogin && <button className='btn btn-prod-modif'><i class="fa-solid fa-pen-to-square"></i></button>}
                          <button className='btn btn-prod-view'><i class="fa-solid fa-eye"></i></button>
-                    </div>
+                    </div> 
+                 </>    
+                   }
+                  
                  </div>
-               
+            
                 ))}
             </div>
           

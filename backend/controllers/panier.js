@@ -27,7 +27,7 @@ exports.readAllPanier = (req,res,next)=>{
 
 //supprimer
 exports.deletePanier = (req,res,next) =>{
-    Panier.deleteOne({_id:req.params.id})
+    Panier.deleteOne({id:req.params.id})
     .then(()=>res.status(200).json({message:'produit supprimer'}))
     .catch((error)=>res.status(400).json({error}))
 }

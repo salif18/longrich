@@ -6,8 +6,8 @@ const Panier = ({panier}) => {
     return (
         <>
             <div className='panier-message'>
-               <h1>Mon Panier <i className="fa-solid fa-cart-shopping">{panier.length}</i></h1>
-               <i className='fa-solid fa-user'></i>{authCtx.userId}
+               <h1>Mon Panier <i className="fa-solid fa-cart-shopping"></i></h1><p>{panier.length}</p>
+               <i className='fa-solid fa-user'></i> {authCtx.userId}
             </div>
         </>
     );

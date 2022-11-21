@@ -2,8 +2,20 @@ import React from 'react';
 import { useState } from 'react';
 import Axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import {ClipLoader} from 'react-spinners';
+import { useEffect } from 'react';
 
 const Signup = () => {
+    
+  //spinner
+  const [loading,setloading]=useState(false)
+  useEffect(()=>{
+    setloading(true)
+    setTimeout(()=>{
+      setloading(false)
+    },1000)
+  },[])
+
     const [dataSignup,setDataSignup]=useState({
      numero:'',password:''
     })
@@ -35,7 +47,7 @@ const navigate = useNavigate()
             <div className='signup'>
                
            
-               <form onSubmit={(e)=>handleSubmit(e)} className='form'>
+            {loading? <ClipLoader className='clip' size={'50px'}/>:<form onSubmit={(e)=>handleSubmit(e)} className='form'>
                  <h1>S'enregistrer</h1>
                  <div>
                    <label className='label-control'><i class="fa-solid fa-phone"></i></label>
@@ -51,7 +63,7 @@ const navigate = useNavigate()
                     <button className='btn btn-signup'>Signup <i class="fa-solid fa-user-plus"></i></button>
                  </div>
                </form>
-
+            }
             </div>
         </>
     );

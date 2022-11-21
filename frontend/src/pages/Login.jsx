@@ -4,8 +4,20 @@ import Axios from 'axios'
 import { useContext } from 'react';
 import AuthContext from '../context/authContext';
 import {useNavigate} from 'react-router-dom'
+import {ClipLoader} from 'react-spinners';
+import { useEffect } from 'react';
+
 
 const Login = ({add}) => {
+  //spinner
+  const [loading,setloading]=useState(false)
+  useEffect(()=>{
+    setloading(true)
+    setTimeout(()=>{
+      setloading(false)
+    },1000)
+  },[])
+
   const [dataLogin,setDataLogin]=useState({
     numero:'',password:''
   })
@@ -44,7 +56,7 @@ const Login = ({add}) => {
         <>
             <div className='login'>
             
-               <form onSubmit={(e)=>handleSubmit(e)} className='form'>
+              {loading? <ClipLoader className='clip' size={'50px'}/> :<form onSubmit={(e)=>handleSubmit(e)} className='form'>
                 <h1>Se connecter</h1>
                  <div>
                    <label className='label-control'><i class="fa-solid fa-phone"></i></label>
@@ -60,6 +72,7 @@ const Login = ({add}) => {
                     <button className='btn btn-login'>Login <i class="fa-solid fa-right-to-bracket"></i></button>
                  </div>
                </form>
+              }
             </div>
         </>
     );

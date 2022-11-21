@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Onglet = () => {
+const Onglet = ({categ}) => {
     const catego = ['All','Broche','Cafe','Dentifrice','Pommade']
     const [category,setCategory]=useState({categorie:""})
     const handleChange=(e)=>{
@@ -10,7 +10,9 @@ const Onglet = () => {
     const handleSubmit =(e)=>{
         e.preventDefault()
         setCategory(category);
+        categ(category)
         setCategory({categorie:''})
+
     }
     return (
         <>

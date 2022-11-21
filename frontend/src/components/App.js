@@ -8,18 +8,22 @@ import Signup from '../pages/Signup';
 import Admin from '../pages/Admin'
 import SignuProfile from './SignuProfile';
 import Profile from './Profile';
+import { useState } from 'react';
 
 
 
 function App() {
+ const [categoryFilter,setCategoryFilter]=useState('')
  
-
+const categ = (category)=>{
+  setCategoryFilter(category)
+}
 
   return (
     <>
      <Routes>
         <Route path='/' element={<Home/>}/>
-         <Route path='/products' element={<Products/>}/>
+         <Route path='/products' element={<Products categoryFilter={categoryFilter} categ={categ}/>}/>
           <Route path='/cart' element={<Cart/>}/>
            <Route path='/login' element={<Login  />}/>
             <Route path='/signup' element={<Signup/>}/>
