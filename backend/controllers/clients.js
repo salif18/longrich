@@ -9,6 +9,9 @@ exports.signup = (req,res,next)=>{
     bcrypt.hash(req.body.password, 10)
     .then(hash =>{
         const clients = new Clients({
+            prenom:req.body.prenom,
+            nom:req.body.nom,
+            address:req.body.address,
             numero:req.body.numero,
             password: hash
         })
@@ -18,7 +21,7 @@ exports.signup = (req,res,next)=>{
     })
     .catch((error)=>res.status(500).json({error}))
 }
-
+// 
 //fonction login se connecter
 exports.login = (req,res,next)=>{
     Clients.findOne({numero:req.body.numero})

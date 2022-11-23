@@ -1,0 +1,23 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.photo{
+    width: 200px;
+    height: 200px;
+    background: #ccdcdc;
+}
+.body-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.prenom,.nom,.address{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    
+}

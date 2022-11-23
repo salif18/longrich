@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center;
 }
+.home h1{
+    font-family: 'Roboto',sans-serif;
+    margin: 50px;
+}
 .clip-home{
     display: flex;
     justify-content: center;
@@ -11,4 +15,9 @@
     position: absolute;
     right: 700px;
     top: 400px;
+}
+
+.log{
+    height: 50vh;
+    margin: 40px;
 }

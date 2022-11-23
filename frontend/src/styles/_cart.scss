@@ -4,8 +4,10 @@
     flex-wrap: wrap;
     border: 2px solid rgb(2, 252, 252,177);
     margin: 20px;
+    padding: 60px;
     border-radius: 10px;
     font-family: 'Roboto',sans-serif;
+    width: 70%;
 }
 
 .card{
@@ -24,18 +26,13 @@
 }
 .cart-img{
     width: 200px;
-    height: 210px;
+    height: 200px;
     transition: all 0.5s ease;
     overflow: hidden;
 }
 
 .card-img:hover{
     transform: scale(1.08);
-}
-.card-body{
-    display: block;
-    align-items: center;
-    justify-content: center;
 }
 
 .card-name{
@@ -88,7 +85,8 @@
 }
 .total{
     margin:20px;
-    width: 30%;
+    width:300px;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,8 +98,30 @@
 }
 .total button{
     margin: 20px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+.total button:hover{
+    transform: scale(1.1);
 }
 .pan{
     display: flex;
-   
+}
+.empty{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto',sans-serif;
+    text-align: center;
+    font-weight: 100;
+}
+.empty .fa-cart-shopping{
+    font-size: 200px;
+    opacity: 15%;
+}
+
+.block .lgo{
+     width: 300px;
+     height: 300px;
 }

@@ -31,9 +31,10 @@
     transform: scale(1.08);
 }
 .card-body{
-    display: block;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-right:90px;
+
 }
 
 .card-name{
@@ -50,9 +51,12 @@
     font-family: 'Roboto',sans-serif;
     margin-bottom: 20px;
     color: rgb(255, 255, 255);
+    transition: all 0.5s ease;
+    overflow: hidden;
 }
 .btn-prod-add:hover{
     background: rgba(10, 190, 85, 0.808);
+    transform: scale(1.2);
 }
 .btn-prod-delete{
     position: absolute;

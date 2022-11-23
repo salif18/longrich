@@ -16,7 +16,7 @@ app.use(cors());
 app.use('/products',productRter);
 app.use('/panier',panierRter);
 app.use('/auth',clientsRter);
-app.use('/profile',profileRter);
+// app.use('/profile',profileRter);
 
 //Zone d'exportation 
 module.exports = app ;

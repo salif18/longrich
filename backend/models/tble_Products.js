@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 const prodSchema = mongoose.Schema({
-    userId:{type:String,required:true},
+    userId:{type:String},
     image:{type:String,required:true},
     name:{type:String,required:true},
     description:{type:String},

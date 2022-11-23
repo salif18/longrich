@@ -8,7 +8,7 @@
 .h1{
     text-align: center;
     padding:30px;
-    font-family:cursive ;
+    font-family:cursive;
 }
 .authentification{
     display: flex;
@@ -21,16 +21,22 @@
 .authentification .btn{
     margin: 20px;
     background: rgb(59, 59, 59);
-    
+     transition: all 0.5s ease;
+     overflow: hidden;
 }
 
 .authentification .btn a{
      text-decoration: none;
      color: #cdcdcd;
+    
+}
+.authentification .btn:hover{
+    transform:scale(1.08);
 }
 .logo{
-    width: 200px;
+    width: 150px;
     height: 50px;
     margin-left: 20px;
-    background: rgb(250, 240, 240);
+    background: rgb(255, 255, 255);
+    
 }

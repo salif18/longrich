@@ -26,4 +26,14 @@
     font-weight: 700;
     font-size: 16px;
     text-align: center;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+.catalogue option{
+    background: #f5f5f5;
+    
+}
+
+.catalogue:hover{
+    transform:translateX(10px);
 }

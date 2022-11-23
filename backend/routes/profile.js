@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const profileCtrl = require('../controllers/profile')
-const auth = require('../middleware/auth')
+const authentification = require('../middleware/auth')
 
 router.post('/',profileCtrl.creadProfile);
 router.get('/',profileCtrl.readAllProfile);

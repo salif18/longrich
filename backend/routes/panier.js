@@ -4,9 +4,9 @@ const router = express.Router();
 const panierCtrl = require('../controllers/panier')
 const auth = require('../middleware/auth')
 
-router.post('/',panierCtrl.addjPanier);
-router.get('/',panierCtrl.readAllPanier);
-router.delete('/:id',panierCtrl.deletePanier);
+router.post('/',auth,panierCtrl.addjPanier);
+router.get('/',auth,panierCtrl.readAllPanier);
+router.delete('/:id',auth,panierCtrl.deletePanier);
 
 //Zone d'exportation
 module.exports = router;

@@ -4,9 +4,11 @@ import Axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import {ClipLoader} from 'react-spinners';
 import { useEffect } from 'react';
+import { useContext } from 'react';
+import AuthContext from '../context/authContext';
 
 const Signup = () => {
-    
+  const authCtx = useContext(AuthContext) 
   //spinner
   const [loading,setloading]=useState(false)
   useEffect(()=>{
@@ -17,7 +19,7 @@ const Signup = () => {
   },[])
 
     const [dataSignup,setDataSignup]=useState({
-     numero:'',password:''
+     prenom:'',nom:'',address:'', numero:'',password:''
     })
     const handleChange = (e)=>{
         const {name,value}=e.target;
@@ -31,7 +33,7 @@ const navigate = useNavigate()
              const res = await Axios.post('http://localhost:3006/auth/signup',dataSignup)
              if(res){
                 const data = await res.data
-                navigate('/')
+                navigate('/login')
              }
          }catch(e){
             console.log(e)
@@ -39,7 +41,7 @@ const navigate = useNavigate()
         }
         postdataS()
         setDataSignup({
-            numero:'',password:''
+          prenom:'',nom:'',address:"",  numero:'',password:''
         })
     }
     return (
@@ -50,17 +52,32 @@ const navigate = useNavigate()
             {loading? <ClipLoader className='clip' size={'50px'}/>:<form onSubmit={(e)=>handleSubmit(e)} className='form'>
                  <h1>S'enregistrer</h1>
                  <div>
-                   <label className='label-control'><i class="fa-solid fa-phone"></i></label>
+                 <label className='label-control'><i className="fa-solid fa-user"></i></label>
+                   <input type='text' id='prenom' className='form-control' placeholder='Prenom:'
+                   name='prenom' value={dataSignup.prenom} onChange={(e)=>handleChange(e)}  />
+                 </div>
+                 <div>
+                 <label className='label-control'><i className="fa-solid fa-user"></i></label>
+                   <input type='text' id='nom' className='form-control' placeholder='Nom:'
+                   name='nom' value={dataSignup.nom} onChange={(e)=>handleChange(e)}  />
+                 </div>
+                 <div>
+                 <label className='label-control'><i class="fa-solid fa-location-dot"></i></label>
+                   <input type='text' id='address' className='form-control' placeholder='Address:'
+                   name='address' value={dataSignup.address} onChange={(e)=>handleChange(e)}  />
+                 </div>
+                 <div>
+                   <label className='label-control'><i className="fa-solid fa-phone"></i></label>
                    <input type='number' id='numero' className='form-control' placeholder='Numero:'
                    name='numero' value={dataSignup.numero} onChange={(e)=>handleChange(e)}  />
                  </div>
                  <div>
-                    <label className='label-control'><i class="fa-solid fa-key"></i></label>
+                    <label className='label-control'><i className="fa-solid fa-key"></i></label>
                     <input type='password' id='password' className='form-control' placeholder='Password:'
                     name='password' value={dataSignup.password} onChange={(e)=>handleChange(e)} />
                  </div>
                  <div>
-                    <button className='btn btn-signup'>Signup <i class="fa-solid fa-user-plus"></i></button>
+                    <button className='btn btn-signup'>Signup <i className="fa-solid fa-user-plus"></i></button>
                  </div>
                </form>
             }

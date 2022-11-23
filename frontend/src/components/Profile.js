@@ -8,16 +8,25 @@ const Profile = () => {
     
     return (
         <>
-        {!isLogin && <Navigate to='/signprofile' replace='true'/>}
+        {!isLogin && <Navigate to='/login' replace='true'/>}
         
            <div className='profile'>
                <div className='photo'>
                   <img src='ddd' alt='nom' />
                </div>
                <div className='body-profile'>
-                 <h1>Prenom:{authCtx.token}</h1>
-                 <h1>Nom:{authCtx.userId}</h1> 
-                 <h1>Address:{authCtx.userId}</h1>
+                 <div className='prenom'>
+                    <h1>Prenom:</h1>
+                    {authCtx.userId}
+                    </div>
+                 <div className='nom'>
+                    <h1>Nom:</h1> 
+                  {authCtx.userId}
+                 </div>
+                 <div className='address'>
+                    <h1>Address:</h1>
+                     {authCtx.userId}
+                 </div>
                </div>
            </div>
         </>

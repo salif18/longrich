@@ -14,12 +14,16 @@ const SignuProfile = () => {
       const {name,value}=e.target;
       setDataProfil({...dataProfil,[name]:value})
    }
+   
+
    const handleSubmit = (e)=>{
       e.preventDefault()
       const postProfil = async()=>{
          const res = await Axios.post('http://localhost:3006/profile',dataProfil)
          if(res){
             const data = await res.data
+            authCtx.login(data.token, data.userId)
+           
             navigate('/')
          }
       }
@@ -49,7 +53,7 @@ const SignuProfile = () => {
                     name='address' value={dataProfil.address} onChange={(e)=>handleChange(e)} />
                  </div>
                  <div>
-                    <button className='btn btn-signup-profile'>Login</button>
+                    <button className='btn btn-signup-profile' >Save <i className="fa-solid fa-floppy-disk"></i></button>
                  </div>
                </form>
         </div>

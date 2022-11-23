@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import Axios from 'axios'
+import axios from 'axios'
 import AuthContext from '../context/authContext';
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
@@ -26,7 +26,7 @@ const Admin = () => {
   })
 
   const handleChange = (e)=>{
-    const {name,value}=e.target;
+    const {name,value} = e.target;
     setDataProducts({...dataProducts,[name]:value})
   }
 
@@ -34,7 +34,11 @@ const handleSubmit = (e) => {
     e.preventDefault()
     const postData = async()=>{
        try{
-           const res = await Axios.post('http://localhost:3006/products',dataProducts)
+           const res = await axios.post('http://localhost:3006/products',dataProducts,
+          { 
+           headers:{Authorization: 'Bearer ' +authCtx.token}
+          }
+          )
            if(res){
             const data = await res.data
            }
@@ -48,7 +52,7 @@ const handleSubmit = (e) => {
     })
 }
 
-const option = ['Choix-de-category',"Pommade",'Savon','Cafe','Dentifrice']
+const option = ['Choix-de-category','Broche',"Pommade",'Savon','Cafe','Dentifrice','Calment']
     return (
         <>
         {!isLogin && <Navigate to='/login' replace='true'/>}
