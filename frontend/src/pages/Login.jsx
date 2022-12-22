@@ -29,17 +29,21 @@ const Login = ({add}) => {
 
   const authCtx = useContext(AuthContext)
   const navigate = useNavigate()
-  
+  const isLogin = authCtx.isLoggin
 
   const handleSubmit = (e)=>{
     e.preventDefault()
     const potLogin = async()=>{
          try{
-            const res = await Axios.post('http://localhost:3006/auth/login',dataLogin)
+            const res = await Axios.post('http://localhost:3006/auth/login',{...dataLogin},{
+              headers:{
+                'Content-Type':'application/json',
+                Authorization: `Bearer ${authCtx.token}`
+              }
+            })
             if(res){
               const data = await res.data
               authCtx.login(data.token,data.userId)
-              console.log(data)
               navigate('/')
               
             }
@@ -52,22 +56,8 @@ const Login = ({add}) => {
       numero:'',password:''
     })
   }
-  // const isLogin = authCtx.isLoggin
-// const [profil,setProfil]=useState('')
-
-//   const getProfile =async()=>{
-//     try{
-//        const res = await Axios.get(`http://localhost:3006/auth/${authCtx.userId}`)
-//     if(res){
-//       const data = await res.data
-//       console.log(data)
-//       setProfil(data.prenom)
-//     }
-//     }catch(e){
-//       console.log(e)
-//     }
-//   }
-   
+  
+  
     return (
         <>
             <div className='login'>
@@ -75,13 +65,13 @@ const Login = ({add}) => {
               {loading? <ClipLoader className='clip' size={'50px'}/> :<form onSubmit={(e)=>handleSubmit(e)} className='form'>
                 <h1>Se connecter</h1>
                  <div>
-                   <label className='label-control'><i className="fa-solid fa-phone"></i></label>
-                   <input type='number' id='numero' className='form-control' placeholder='Numero:'
+                   <label className='label-control'>Number <i className="fa-solid fa-phone"></i></label>
+                   <input type='number' id='numero' className='form-control'
                    name='numero' value={dataLogin.numero} onChange={(e)=>handleChange(e)}  />
                  </div>
                  <div>
-                    <label className='label-control'><i className="fa-solid fa-key"></i></label>
-                    <input type='password' id='password' className='form-control' placeholder='Password:'
+                    <label className='label-control'>Password <i className="fa-solid fa-key"></i></label>
+                    <input type='password' id='password' className='form-control'
                     name='password' value={dataLogin.password} onChange={(e)=>handleChange(e)} />
                  </div>
                 

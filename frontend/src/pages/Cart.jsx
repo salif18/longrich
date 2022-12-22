@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Axios from 'axios'
 import Panier from '../components/Panier';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import AuthContext from '../context/authContext';
 import {ClipLoader} from 'react-spinners';
 import Empty from '../components/Empty';
@@ -25,10 +25,13 @@ useEffect(()=>{
     //recuperation des produits du panier depuis le server
     const [panier , setPanier] = useState([])
     useEffect(()=>{
-      const getPanie = async()=>{
-          const res = await Axios.get('http://localhost:3006/panier',
+      const getPanie = async(id)=>{
+          const res = await Axios.get(`http://localhost:3006/panier/?euserId=${authCtx.userId}`,
           { 
-            headers:{Authorization: 'Bearer ' +authCtx.token}
+            headers:{
+              'Content-Type':'application/json',
+              Authorization: `Bearer ${authCtx.token}`
+            }
            }
           )
         if(res){
@@ -44,7 +47,10 @@ useEffect(()=>{
         try{
          const res = await Axios.delete('http://localhost:3006/panier/:id',
          { 
-          headers:{Authorization: 'Bearer ' +authCtx.token}
+          headers:{
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authCtx.token}`
+          }
          }
          )
          if(res){

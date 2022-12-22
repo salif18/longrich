@@ -16,14 +16,12 @@ export const AuthContextProvider =(props)=>{
 
     const [token , setToken] = useState(tokenLocalStorage)
     const [userId, setUserId] = useState(userIdLocalStorage)
-   
 
     const handlerLogin = (token,userId)=>{
         setToken(token)
         setUserId(userId)
         localStorage.setItem('token',token)
         localStorage.setItem('userId',userId)
-
     }
 
     const handlerLogout = ()=>{

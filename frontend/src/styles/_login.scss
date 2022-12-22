@@ -2,29 +2,31 @@
     margin-left: 400px;
     margin-top: 150px;
     margin-bottom:150px ;
-    color: rgb(2,252,177);
+    color: rgba(10, 190, 85, 0.808);
     font-weight: bold;
-    border: 2px solid rgb(2,252,177);
+    border: 2px solid rgba(10, 190, 85, 0.808);
     border-radius: 10px;
     width: 600px;
     padding: 40px;
     font-family: 'Roboto',sans-serif; 
     outline: none;
-    box-shadow: 3px 3px 3px 3px rgb(2, 252, 177);
+    box-shadow: 3px 3px 3px 3px rgba(10, 190, 85, 0.808);
     overflow:hidden ;
     transition: all 0.5s ease;
 }
 form:hover{
-    transform: scale(1.01);
+    transform: scale(1.008);
 }
 .form-control{
-    border: 2px solid rgb(2,252,177);
+    border: 2px solid rgba(10, 190, 85, 0.808);
     width: 500px; 
     font-weight: 400;
     margin: 10px;
-    border: 2px solid rgb(2,252,177);
+    border: 2px solid rgba(10, 190, 85, 0.808);
     transition: all 0.5s ease;
     overflow: hidden;
+    background: #f5f0f0;
+    
 }
 .form-control:hover{
     transform: scale(1.04);
@@ -38,10 +40,11 @@ form:hover{
     transform: translateX(10px);
 }
 .btn-login{
-    background: rgb(2,252,177);
+    background:rgba(10, 190, 85, 0.808) ;
     width: 500px;
     height: 50px;
-    margin: 10px;
+    margin-top:40px;
+    margin-left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,8 +56,9 @@ form:hover{
 .btn-signup{
     width: 500px;
     height: 50px;
-    background: rgb(2,252,177);
-    margin:10px;
+    background: rgba(10, 190, 85, 0.808);
+    margin-top:40px;
+    margin-left: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +69,7 @@ form:hover{
 }
 
 .form h1{
-    border-bottom: 2px solid rgb(2,252,177);
+    border-bottom: 2px solid rgba(10, 190, 85, 0.808);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius:10px ;
     text-align: center;
@@ -76,27 +80,37 @@ form:hover{
 .btn-login:hover{
     background: rgb(2, 252, 177);
     transform: translateY(10px);
+    color: green;
 }
 .btn-signup:hover{
-    background: rgb(2, 252, 177);
+    background: rgba(11, 226, 101, 0.808);
     transform: translateY(10px);
+    color:green;
 }
 .btn-admin{
     width: 500px;
-    background: rgb(2,252,177);
-    margin: 20px;
+    background: rgba(10, 190, 85, 0.808);
+    margin-top:40px;
+    margin-left: 10px;
     transition: all 0.5s ease;
     overflow: hidden;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
+}
+.btn-admin:hover{
+    background: rgb(16, 230, 166);
+    color: green;
 }
 
 .btn-logout{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #cdcdcd;
+    color: #e4e4e4;
     font-family: 'Roboto',sans-serif;
     transition: all 0.5s ease;
     overflow: hidden;
+    font-weight: 500;
 }
 
 .clip{
@@ -112,6 +126,6 @@ form:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(2,252,177);
+    background: rgba(10, 190, 85, 0.808);
     margin: 20px;
 }

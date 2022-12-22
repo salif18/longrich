@@ -6,7 +6,7 @@ const mongoose = require('./connection/connection');
 const productRter = require('./routes/products');
 const panierRter = require('./routes/panier');
 const clientsRter = require('./routes/clients');
-const profileRter = require('./routes/profile');
+
 
 //Zone de configuration
 app.use(express.json());

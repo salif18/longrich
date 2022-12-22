@@ -34,9 +34,12 @@ const handleSubmit = (e) => {
     e.preventDefault()
     const postData = async()=>{
        try{
-           const res = await axios.post('http://localhost:3006/products',dataProducts,
+           const res = await axios.post('http://localhost:3006/products',{...dataProducts},
           { 
-           headers:{Authorization: 'Bearer ' +authCtx.token}
+           headers:{
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authCtx.token}`
+          }
           }
           )
            if(res){
@@ -61,17 +64,17 @@ const option = ['Choix-de-category','Broche',"Pommade",'Savon','Cafe','Dentifric
                 <h1>Placer un produit</h1>
                 <div>
                     <label className='label-control'>Image</label>
-                    <input type='text' id='image' className='form-control' placeholder='Photo'
+                    <input type='text' id='image' className='form-control'
                       name='image' value={dataProducts.image} onChange={(e)=>handleChange(e)} />
                 </div>
                 <div>
                     <label className='label-control'>Name</label>
-                    <input type='text' id='name' className='form-control' placeholder='Name'
+                    <input type='text' id='name' className='form-control' 
                       name='name' value={dataProducts.name} onChange={(e)=>handleChange(e)}  />
                 </div>
                 <div>
                     <label className='label-control'>Description</label>
-                    <input type='text' id='description' className='form-control' placeholder='description'
+                    <input type='text' id='description' className='form-control' 
                       name='description' value={dataProducts.description} onChange={(e)=>handleChange(e)}  />
                 </div>
                 <div>
@@ -83,7 +86,7 @@ const option = ['Choix-de-category','Broche',"Pommade",'Savon','Cafe','Dentifric
                 </div>
                 <div>
                     <label className='label-control'>Price</label>
-                    <input type='number' id='price' className='form-control' placeholder='Price'
+                    <input type='number' id='price' className='form-control' 
                       name='price' value={dataProducts.price} onChange={(e)=>handleChange(e)}  />
                 </div>
                 <div>

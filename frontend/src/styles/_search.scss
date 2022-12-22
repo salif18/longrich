@@ -1,0 +1,21 @@
+.search form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 200px;
+    top:240px
+}
+.search .form-control{
+    border: 1px solid #333;
+    border-top-left-radius:5px ;
+    border-bottom-left-radius: 5px;
+    height: 30px;
+    width: 300px;
+}
+.search form .btn{
+    width: 50px;
+    height: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius:10px ;
+}

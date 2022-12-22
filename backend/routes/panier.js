@@ -6,6 +6,7 @@ const auth = require('../middleware/auth')
 
 router.post('/',auth,panierCtrl.addjPanier);
 router.get('/',auth,panierCtrl.readAllPanier);
+router.get('/:id',auth,panierCtrl.readOnePanier)
 router.delete('/:id',auth,panierCtrl.deletePanier);
 
 //Zone d'exportation

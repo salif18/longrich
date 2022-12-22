@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import {ClipLoader} from 'react-spinners'
 import Footer from '../components/Footer';
 
+
 const log ='https://i0.wp.com/www.longrich-guinee.com/wp-content/uploads/2021/05/cropped-logo2.png?fit=512%2C512&ssl=1';
 const Home = () => {
     //spinner
@@ -16,6 +17,7 @@ const Home = () => {
       setloading(false)
     },1000)
   },[])
+
 
     return (
        

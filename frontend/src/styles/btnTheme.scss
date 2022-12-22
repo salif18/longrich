@@ -1,0 +1,38 @@
+.css-dark.fa-moon{
+    position: absolute;
+    right: 20px;
+    background: #f5f5f5;
+    border: 1px solid #333;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(255, 166, 0);
+    transition: all 0.5s ease;
+}
+.css-dark.fa-moon:hover{
+    transform: translateX(-20px);
+    width: 90px;
+    height: 30px;
+    border-radius: 50px;
+    background: rgb(255, 177, 33);
+    border: 1px solid rgb(255, 177, 33);
+    color: #333;
+}
+
+.css-light.fa-sun{
+    position: absolute;
+    right: 20px;
+    background: #333;
+    border: 1px solid #333;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgba(248, 193, 10, 0.979);
+    transition: all 0.5s ease;
+}

@@ -35,10 +35,16 @@ exports.login = (req,res,next)=>{
                 return res.status(400).json({message:'password incorrect'})
             }
             res.status(200).json({userId:user._id , token: jwt.sign({
-                userId:user._id},`${process.env.RANDOM_TOKEN_SECRET}`,{expiresIn:'24h'}
+                userId:user._id},`${process.env.TOKEN_KEY_SECRET}`,{expiresIn:'24h'}
                 )})
         })
         .catch((error)=>res.status(500).json({error}))
     })
     .catch((error)=>res.status(500).json({error}))
+}
+
+exports.getUser=(req,res,next)=>{
+    Clients.findOne({ _id:req.params.id})
+     .then((user)=>res.status(201).json(user))
+     .catch((err)=>res.status(400).json({err}))
 }

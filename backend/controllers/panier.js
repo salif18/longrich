@@ -21,8 +21,17 @@ exports.addjPanier = (req,res,next)=>{
 //lire Tous
 exports.readAllPanier = (req,res,next)=>{
     Panier.find()
-    .then((panie)=>res.status(200).json(panie))
+    .then((paniers)=>res.status(200).json(paniers))
     .catch((error)=>res.status(400).json({error}))
+    
+}
+
+//lire one
+exports.readOnePanier =(req,res,next)=>{
+    Panier.findOne({id:req.params.id})
+    .then((panier)=>res.status(200).json(panier))
+    .catch((err)=>res.status(400).json({err}))
+    
 }
 
 //supprimer
